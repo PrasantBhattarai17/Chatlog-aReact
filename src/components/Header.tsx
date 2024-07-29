@@ -1,4 +1,4 @@
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View,Image } from 'react-native';
 import React from 'react';
 
 export default function Header() {
@@ -7,7 +7,9 @@ export default function Header() {
     <View style={styles.HeaderBox}>
   <Text style={styles.HeaderChat}>Messenger</Text>
 <Pressable>
-    <Text style={styles.HeaderChat}>🔍</Text>
+<Image style={styles.SearchImage} source={{
+  uri:"https://endlessicons.com/wp-content/uploads/2015/08/search-icon-2-614x460.png"
+}}></Image>
 </Pressable>
 
     </View>
@@ -32,5 +34,10 @@ const styles = StyleSheet.create({
     },
     WholeHeader:{
       marginVertical:25
+    },
+    SearchImage:{
+      width:50,
+      height:50,
+      alignSelf:"center"
     }
 });
