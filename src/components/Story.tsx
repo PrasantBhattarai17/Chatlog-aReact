@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet,Image, View,Text } from 'react-native'
+import { ScrollView, StyleSheet,Image, View,Text, TouchableOpacity } from 'react-native'
 import React from 'react';
 import { PeopleData } from '../utils/constants';
 
@@ -11,13 +11,15 @@ export default function Story() {
         source={{ uri:"https://static.vecteezy.com/system/resources/previews/024/758/073/original/simple-add-story-icon-the-icon-can-be-used-for-websites-print-templates-presentation-templates-illustrations-etc-free-vector.jpg"}}/>
        <Text style={styles.nameText}>Add Story</Text>
         </View>
-      {frienddata.map(({image,name},index)=>(
+      {frienddata.map(({image,name,status},index)=>(
       <View 
       key={index} 
       style={styles.profileUser}>
+        <TouchableOpacity onPress={()=>alert(name)}>
       <Image style={styles.userImage}
         source={{ uri:image}}/>
-       <Text style={styles.nameText}>{name.slice(0,4)}</Text>
+       <Text style={styles.nameText}>{name.split(" ")[0]}</Text>
+       </TouchableOpacity>
         </View>
      ))}
     </ScrollView>
@@ -35,10 +37,16 @@ const styles = StyleSheet.create({
 textAlign:"center",
 fontSize:14,
 fontWeight:"400",
+color:"black",
+width:70
   },
-  profileUser:{}
+  profileUser:{
+    height:105
+  }
 ,
 StoryBar:{
-  marginBottom:25,
+  flex:1,
+  height:90,
+  marginVertical:10,
 }
 })

@@ -1,11 +1,11 @@
-import { Pressable, ScrollView, StyleSheet, Text, View,Image } from 'react-native'
+import { Pressable, ScrollView, StyleSheet, Text, View,Image, TouchableOpacity } from 'react-native'
 import React from 'react';
 import { PeopleData } from '../utils/constants';
 
 export default function ScrollChats() {
   const frienddata=PeopleData;
   return (
-    <ScrollView>
+    <ScrollView style={styles.MainContainer} >
     <View style={styles.chatsHeading}>
       <Text style={styles.HeadingChat}>Chats</Text>
        <Pressable>
@@ -18,7 +18,8 @@ export default function ScrollChats() {
        </Pressable>
     </View>
     {frienddata.map(({image,name,status,unseen,time},index)=>(
-    <View key={index} style={styles.aPersonChat}>
+      <Pressable  key={index} onPress={()=>alert(status)}>
+    <View style={[styles.aPersonChat,styles.ElevatedPerson]}>
       <Image
       style={
         styles.imageUser
@@ -33,6 +34,8 @@ export default function ScrollChats() {
         <Text style={styles.unseenStyle}>{unseen.toString()}</Text>
       </View>
     </View>
+      </Pressable>
+
     ))}
     </ScrollView>
   )
@@ -43,8 +46,8 @@ chatsHeading:{
 flexDirection:"row",
 justifyContent:"space-between",
 alignItems:"center",
-marginHorizontal:5,
-marginVertical:10
+marginHorizontal:10,
+marginBottom:8,
 },
 HeadingChat:{
 fontSize:20,
@@ -59,8 +62,8 @@ aPersonChat:{
 flexDirection:"row",
 justifyContent:"space-between",
 margin:2,
-marginVertical:5,
-gap:2
+marginVertical:2,
+gap:2,
 },
 Chats:{
   width:210
@@ -75,6 +78,7 @@ imageUser:{
   height:60,
   width:60,
   borderRadius:50,
+  alignSelf:'center'
 },
 Figuretext:{
   fontSize:12,
@@ -101,6 +105,22 @@ messageText:{
   fontSize:14,
   marginHorizontal:4,
   fontWeight:"500"
-}
+},
+ElevatedPerson:{
+    borderRadius:5,
+    backgroundColor:"#fff",
+    height:70,
+    margin:2,
+ shadowOffset:{
+    width:1,
+    height:1,
+ },
+ shadowColor:"black",
+ elevation:20
 
-})
+},
+MainContainer:{
+flex:1
+}
+}
+)

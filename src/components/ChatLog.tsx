@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import React from 'react';
 import Header from './Header';
 import Story from './Story';
@@ -7,13 +7,23 @@ import FixedNav from './FixedNav';
 
 export default function ChatLog() {
   return (
-    <View>
-   <Header/>
-   <Story/>
-   <ScrollChats/>
-   <FixedNav/>
+    <View style={styles.wholeContainer}>
+      <Header />
+      <ScrollView style={styles.mainContent}>
+        <Story/>
+        <ScrollChats />
+      </ScrollView>
+      <FixedNav />
     </View>
-  )
+  );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  wholeContainer: {
+    flex: 1,
+    flexDirection: 'column',
+  },
+  mainContent:{
+    
+  }
+});
