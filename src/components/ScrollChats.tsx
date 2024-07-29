@@ -17,26 +17,23 @@ export default function ScrollChats() {
     />
        </Pressable>
     </View>
-    {frienddata.map(({image,name,unseen,status,time},index)=>(
+    {frienddata.map(({image,name,status,unseen,time},index)=>(
     <View key={index} style={styles.aPersonChat}>
       <Image
       style={
         styles.imageUser
       }
-      source={{
-        uri:image
-      }}
-      />
+      source={{ uri:image}} />
       <View style={styles.Chats}>
-        <Text>{name}</Text>
-        <Text>{status}</Text>
+        <Text style={styles.NameText}>{name}</Text>
+        <Text style={styles.messageText}>{status}</Text>
       </View>
       <View style={styles.Figures}>
-        <Text>{time}</Text>
-        <Text>{unseen.toString()}</Text>
+        <Text style={styles.Figuretext}>{time}</Text>
+        <Text style={styles.unseenStyle}>{unseen.toString()}</Text>
       </View>
     </View>
-    ))};
+    ))}
     </ScrollView>
   )
 }
@@ -46,7 +43,8 @@ chatsHeading:{
 flexDirection:"row",
 justifyContent:"space-between",
 alignItems:"center",
-marginHorizontal:5
+marginHorizontal:5,
+marginVertical:10
 },
 HeadingChat:{
 fontSize:20,
@@ -60,30 +58,49 @@ MoreIcon:{
 aPersonChat:{
 flexDirection:"row",
 justifyContent:"space-between",
-backgroundColor:"antiquewhite",
 margin:2,
+marginVertical:5,
 gap:2
 },
 Chats:{
-  backgroundColor:"red",
-  width:240
-
+  width:210
 },
 Figures:{
-
-  backgroundColor:"yellow",
-  marginRight:4,
   flexDirection:"column",
   alignItems:"center",
   justifyContent:"center",
-  width:52
-
+  width:60,
 },
 imageUser:{
   height:60,
   width:60,
   borderRadius:50,
-}
+},
+Figuretext:{
+  fontSize:12,
+  textAlign:"center",
+  marginVertical:7
+},
+unseenStyle:{
+  fontSize:12,
+  backgroundColor:"black",
+  color:"#ffffff",
+  height:20,
+  width:20,
+  borderRadius:45,
+  textAlign:"center"
 
+},
+NameText:{
+  fontSize:16,
+  fontWeight:"bold",
+  marginHorizontal:4,
+  marginVertical:5
+},
+messageText:{
+  fontSize:14,
+  marginHorizontal:4,
+  fontWeight:"500"
+}
 
 })

@@ -1,156 +1,130 @@
-export const PeopleData=[
+export const PeopleData = [
     {
-         
-        "name":"sam smith",
-        "image":"https://plus.unsplash.com/premium_photo-1664476788423-7899ac87bd7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG1hbGV8ZW58MHx8MHx8fDA%3D",
-         "status":"Hello there! What are you doing?",
-         "time":"7:56 ",
-         "unseen":2,
-
+        "uid": 1,
+        "name": "Sam Smith",
+        "image": "https://plus.unsplash.com/premium_photo-1664476788423-7899ac87bd7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG1hbGV8ZW58MHx8MHx8fDA%3D",
+        "status": "Hello there! What are you doing?",
+        "time": "7:56 AM",
+        "unseen": 2
     },
     {
-         
-        "name":"sam smith",
-        "image":"https://plus.unsplash.com/premium_photo-1664476788423-7899ac87bd7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG1hbGV8ZW58MHx8MHx8fDA%3D",
-         "status":"Hello there! What are you doing?",
-         "time":"7:56 ",
-         "unseen":2,
-
+        "uid": 2,
+        "name": "Alex Johnson",
+        "image": "https://randomuser.me/api/portraits/men/2.jpg",
+        "status": "Good morning!",
+        "time": "8:15 AM",
+        "unseen": 5
     },
     {
-         
-        "name":"sam smith",
-        "image":"https://plus.unsplash.com/premium_photo-1664476788423-7899ac87bd7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG1hbGV8ZW58MHx8MHx8fDA%3D",
-         "status":"Hello there! What are you doing?",
-         "time":"7:56 ",
-         "unseen":2,
-
+        "uid": 3,
+        "name": "Chris Evans",
+        "image": "https://randomuser.me/api/portraits/men/3.jpg",
+        "status": "Let's catch up later.",
+        "time": "9:30 AM",
+        "unseen": 1
     },
     {
-         
-        "name":"sam smith",
-        "image":"https://plus.unsplash.com/premium_photo-1664476788423-7899ac87bd7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG1hbGV8ZW58MHx8MHx8fDA%3D",
-         "status":"Hello there! What are you doing?",
-         "time":"7:56 ",
-         "unseen":2,
-
+        "uid": 4,
+        "name": "Jessica Alba",
+        "image": "https://randomuser.me/api/portraits/women/4.jpg",
+        "status": "On my way!",
+        "time": "10:00 AM",
+        "unseen": 3
     },
     {
-         
-        "name":"sam smith",
-        "image":"https://plus.unsplash.com/premium_photo-1664476788423-7899ac87bd7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG1hbGV8ZW58MHx8MHx8fDA%3D",
-         "status":"Hello there! What are you doing?",
-         "time":"7:56 ",
-         "unseen":2,
-
+        "uid": 5,
+        "name": "Michael Scott",
+        "image": "https://randomuser.me/api/portraits/men/5.jpg",
+        "status": "What's the plan?",
+        "time": "10:45 AM",
+        "unseen": 4
     },
     {
-         
-        "name":"sam smith",
-        "image":"https://plus.unsplash.com/premium_photo-1664476788423-7899ac87bd7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG1hbGV8ZW58MHx8MHx8fDA%3D",
-         "status":"Hello there! What are you doing?",
-         "time":"7:56 ",
-         "unseen":2,
-
+        "uid": 6,
+        "name": "Sara Connor",
+        "image": "https://randomuser.me/api/portraits/women/6.jpg",
+        "status": "See you soon.",
+        "time": "11:20 AM",
+        "unseen": 2
     },
     {
-         
-        "name":"sam smith",
-        "image":"https://plus.unsplash.com/premium_photo-1664476788423-7899ac87bd7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG1hbGV8ZW58MHx8MHx8fDA%3D",
-         "status":"Hello there! What are you doing?",
-         "time":"7:56 ",
-         "unseen":2,
-
+        "uid": 7,
+        "name": "Tom Hanks",
+        "image": "https://randomuser.me/api/portraits/men/7.jpg",
+        "status": "Had a great time!",
+        "time": "11:45 AM",
+        "unseen": 6
     },
     {
-         
-        "name":"sam smith",
-        "image":"https://plus.unsplash.com/premium_photo-1664476788423-7899ac87bd7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG1hbGV8ZW58MHx8MHx8fDA%3D",
-         "status":"Hello there! What are you doing?",
-         "time":"7:56 ",
-         "unseen":2,
-
+        "uid": 8,
+        "name": "Emma Watson",
+        "image": "https://randomuser.me/api/portraits/women/8.jpg",
+        "status": "Let's meet tomorrow.",
+        "time": "12:30 PM",
+        "unseen": 7
     },
     {
-         
-        "name":"sam smith",
-        "image":"https://plus.unsplash.com/premium_photo-1664476788423-7899ac87bd7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG1hbGV8ZW58MHx8MHx8fDA%3D",
-         "status":"Hello there! What are you doing?",
-         "time":"7:56 ",
-         "unseen":2,
-
+        "uid": 9,
+        "name": "Brad Pitt",
+        "image": "https://randomuser.me/api/portraits/men/9.jpg",
+        "status": "Can't wait!",
+        "time": "1:00 PM",
+        "unseen": 7
     },
     {
-         
-        "name":"sam smith",
-        "image":"https://plus.unsplash.com/premium_photo-1664476788423-7899ac87bd7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG1hbGV8ZW58MHx8MHx8fDA%3D",
-         "status":"Hello there! What are you doing?",
-         "time":"7:56 ",
-         "unseen":2,
-
+        "uid": 10,
+        "name": "Natalie Portman",
+        "image": "https://randomuser.me/api/portraits/women/10.jpg",
+        "status": "Are you free later?",
+        "time": "2:15 PM",
+        "unseen": 4
     },
     {
-         
-        "name":"sam smith",
-        "image":"https://plus.unsplash.com/premium_photo-1664476788423-7899ac87bd7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG1hbGV8ZW58MHx8MHx8fDA%3D",
-         "status":"Hello there! What are you doing?",
-         "time":"7:56 ",
-         "unseen":2,
-
+        "uid": 11,
+        "name": "David Beckham",
+        "image": "https://randomuser.me/api/portraits/men/11.jpg",
+        "status": "See you at the game.",
+        "time": "3:30 PM",
+        "unseen": 8
     },
     {
-         
-        "name":"sam smith",
-        "image":"https://plus.unsplash.com/premium_photo-1664476788423-7899ac87bd7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG1hbGV8ZW58MHx8MHx8fDA%3D",
-         "status":"Hello there! What are you doing?",
-         "time":"7:56 ",
-         "unseen":2,
-
+        "uid": 12,
+        "name": "Angelina Jolie",
+        "image": "https://randomuser.me/api/portraits/women/12.jpg",
+        "status": "Thanks for the help!",
+        "time": "4:00 PM",
+        "unseen": 1
     },
     {
-         
-        "name":"sam smith",
-        "image":"https://plus.unsplash.com/premium_photo-1664476788423-7899ac87bd7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG1hbGV8ZW58MHx8MHx8fDA%3D",
-         "status":"Hello there! What are you doing?",
-         "time":"7:56 ",
-         "unseen":2,
-
+        "uid": 13,
+        "name": "Robert Downey Jr.",
+        "image": "https://randomuser.me/api/portraits/men/13.jpg",
+        "status": "Talk to you soon.",
+        "time": "5:20 PM",
+        "unseen": 3
     },
     {
-         
-        "name":"sam smith",
-        "image":"https://plus.unsplash.com/premium_photo-1664476788423-7899ac87bd7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG1hbGV8ZW58MHx8MHx8fDA%3D",
-         "status":"Hello there! What are you doing?",
-         "time":"7:56 ",
-         "unseen":2,
-
+        "uid": 14,
+        "name": "Scarlett Johansson",
+        "image": "https://randomuser.me/api/portraits/women/14.jpg",
+        "status": "Got it!",
+        "time": "6:45 PM",
+        "unseen": 5
     },
     {
-         
-        "name":"sam smith",
-        "image":"https://plus.unsplash.com/premium_photo-1664476788423-7899ac87bd7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG1hbGV8ZW58MHx8MHx8fDA%3D",
-         "status":"Hello there! What are you doing?",
-         "time":"7:56 ",
-         "unseen":2,
-
+        "uid": 15,
+        "name": "Chris Hemsworth",
+        "image": "https://randomuser.me/api/portraits/men/15.jpg",
+        "status": "Let's do it.",
+        "time": "7:10 PM",
+        "unseen": 2
     },
     {
-         
-        "name":"sam smith",
-        "image":"https://plus.unsplash.com/premium_photo-1664476788423-7899ac87bd7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG1hbGV8ZW58MHx8MHx8fDA%3D",
-         "status":"Hello there! What are you doing?",
-         "time":"7:56 ",
-         "unseen":2,
-
-    },
-    {
-         
-        "name":"sam smith",
-        "image":"https://plus.unsplash.com/premium_photo-1664476788423-7899ac87bd7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG1hbGV8ZW58MHx8MHx8fDA%3D",
-         "status":"Hello there! What are you doing?",
-         "time":"7:56 ",
-         "unseen":2,
-
-    },
-    
-]
+        "uid": 16,
+        "name": "Gal Gadot",
+        "image": "https://randomuser.me/api/portraits/women/16.jpg",
+        "status": "Sounds good!",
+        "time": "8:30 PM",
+        "unseen": 4
+    }
+];
