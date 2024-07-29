@@ -5,11 +5,17 @@ import { PeopleData } from '../utils/constants';
 export default function Story() {
   const frienddata=PeopleData;
   return (
-    <ScrollView horizontal={true}>
-      {frienddata.map(({image,name},index)=>(
+    <ScrollView style={styles.StoryBar} horizontal={true}>
       <View style={styles.profileUser}>
       <Image style={styles.userImage}
-        key={index} 
+        source={{ uri:"https://static.vecteezy.com/system/resources/previews/024/758/073/original/simple-add-story-icon-the-icon-can-be-used-for-websites-print-templates-presentation-templates-illustrations-etc-free-vector.jpg"}}/>
+       <Text style={styles.nameText}>Add Story</Text>
+        </View>
+      {frienddata.map(({image,name},index)=>(
+      <View 
+      key={index} 
+      style={styles.profileUser}>
+      <Image style={styles.userImage}
         source={{ uri:image}}/>
        <Text style={styles.nameText}>{name.slice(0,4)}</Text>
         </View>
@@ -23,7 +29,7 @@ const styles = StyleSheet.create({
     height:60,
     width:60,
     borderRadius:50,
-    marginHorizontal:7
+    marginHorizontal:6
   },
   nameText:{
 textAlign:"center",
@@ -31,5 +37,8 @@ fontSize:14,
 fontWeight:"400",
   },
   profileUser:{}
-
+,
+StoryBar:{
+  marginBottom:25,
+}
 })
