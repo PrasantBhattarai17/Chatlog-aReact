@@ -17,8 +17,8 @@ export default function ScrollChats() {
     />
        </Pressable>
     </View>
-    {frienddata.map(({image,name,status,unseen,time},index)=>(
-      <Pressable  key={index} onPress={()=>alert(status)}>
+    {frienddata.map(({image,name,status,unseen,time},index)=>( 
+      <Pressable  key={index} onPress={()=>alert(name+":"+status)}>
     <View style={[styles.aPersonChat,styles.ElevatedPerson]}>
       <Image
       style={

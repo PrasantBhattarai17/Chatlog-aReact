@@ -52,7 +52,14 @@ newChat:{
   width:120,
   height:40,
   borderRadius:10,
-  marginLeft:4
+  marginLeft:4,
+  
+ shadowOffset:{
+  width:1,
+  height:1,
+},
+shadowColor:"black",
+elevation:5
 },
 newChatImg:{
   width:20,
