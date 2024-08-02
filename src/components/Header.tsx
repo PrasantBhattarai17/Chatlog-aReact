@@ -1,18 +1,19 @@
-import { Pressable, ScrollView, StyleSheet, Text, View,Image } from 'react-native';
-import React from 'react';
+import { Pressable, ScrollView, StyleSheet, Text, View,Image, TextInput } from 'react-native';
+import React, { useState } from 'react';
 
 export default function Header() {
+  const [showSearch,setShowSearch]=useState(false);
   return (
     <ScrollView style={styles.WholeHeader}>
     <View style={styles.HeaderBox}>
-  <Text style={styles.HeaderChat}>Messenger</Text>
-<Pressable>
+  {(showSearch)? (<TextInput placeholder='Search User' style={styles.SearchInput}></TextInput>):<Text style={styles.HeaderChat}>Messenger</Text>}
+<Pressable onPress={()=>setShowSearch(!showSearch)}>
 <Image style={styles.SearchImage} source={{
   uri:"https://endlessicons.com/wp-content/uploads/2015/08/search-icon-2-614x460.png"
 }}></Image>
 </Pressable>
+</View>
 
-    </View>
     </ScrollView>
   )
 }
@@ -30,14 +31,25 @@ const styles = StyleSheet.create({
     HeaderChat:{
         fontSize:25,
        fontWeight:"bold",
+    },
+    SearchInput:{
+   borderWidth:1,
+   width:240,
+   height:40,
+   marginLeft:10,
+   borderRadius:7,
+   color:"black",
+   backgroundColor:"#fff",
+   shadowColor:"black",
+   elevation:2
 
     },
     WholeHeader:{
       marginVertical:25
     },
     SearchImage:{
-      width:50,
-      height:50,
+      width:60,
+      height:60,
       alignSelf:"center"
     }
 });
