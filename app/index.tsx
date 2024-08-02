@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import ChatLog from './src/components/ChatLog';
+import ChatLog from './components/ChatLog';
 
 export default function App() {
   return (

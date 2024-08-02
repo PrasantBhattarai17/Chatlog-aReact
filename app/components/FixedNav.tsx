@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View,Image, TouchableOpacity } from 'react-native'
 import React from 'react'
+import { Link, router } from 'expo-router'
 
 export default function FixedNav() {
   return (
@@ -13,7 +14,7 @@ export default function FixedNav() {
     <Image style={styles.newChatImg} source={{uri:"https://icon-library.com/images/white-plus-icon/white-plus-icon-8.jpg"}}/>
     <Text style={styles.newChatText}>New Chat</Text>
   </TouchableOpacity>
-  <TouchableOpacity>
+  <TouchableOpacity onPress={()=>{router.navigate("/NavBelow")}}>
   <Image style={styles.profileIcon} source={{
     uri:"https://cdn.iconscout.com/icon/free/png-256/free-profile-icon-download-in-svg-png-gif-file-formats--user-avatar-account-person-ui-and-ux-pack-interface-icons-2917913.png"
   }}/>
@@ -75,7 +76,6 @@ fontWeight:"bold"
 profileIcon:{
   width:50,
   height:50,
-
 
 }
 })
