@@ -3,7 +3,6 @@ import React from 'react';
 import Header from './Header';
 import Story from './Story';
 import ScrollChats from './ScrollChats';
-import FixedNav from './FixedNav';
 
 export default function ChatLog() {
   return (
@@ -13,7 +12,6 @@ export default function ChatLog() {
         <Story/>
         <ScrollChats />
       </ScrollView>
-      <FixedNav />
     </View>
   );
 }
