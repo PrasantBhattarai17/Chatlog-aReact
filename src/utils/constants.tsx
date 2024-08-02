@@ -26,8 +26,8 @@ export const PeopleData = [
         "status": "Let's catch up later.",
         "time": "9:30 AM",
         "unseen": 1,
-        "online": false,
-        "lastOnline": "1 hour ago"
+        "online": true,
+        "lastOnline": "now"
     },
     {
         "uid": 4,
@@ -86,8 +86,8 @@ export const PeopleData = [
         "status": "Can't wait!",
         "time": "1:00 PM",
         "unseen": 7,
-        "online": false,
-        "lastOnline": "10 min ago"
+        "online": true,
+        "lastOnline": "now"
     },
     {
         "uid": 10,

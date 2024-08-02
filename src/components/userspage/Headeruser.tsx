@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     width:360,
     flexDirection:"row",
     margin:2,
-    marginBottom:15,
+    marginBottom:7,
     },
     HeadingText:{
     marginHorizontal:18,
