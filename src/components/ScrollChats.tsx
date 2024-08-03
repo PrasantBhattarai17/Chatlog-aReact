@@ -1,9 +1,15 @@
 import { Pressable, ScrollView, StyleSheet, Text, View,Image, TouchableOpacity } from 'react-native'
 import React from 'react';
 import { PeopleData } from '../utils/constants';
+import * as Haptics from "expo-haptics";
+
 
 export default function ScrollChats() {
   const frienddata=PeopleData;
+  const handlePress=(name:string,status:string)=>{
+    alert(name+":"+status);
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
+  }
   return (
     <ScrollView style={styles.MainContainer} >
     <View style={styles.chatsHeading}>
@@ -18,7 +24,7 @@ export default function ScrollChats() {
        </Pressable>
     </View>
     {frienddata.map(({image,name,status,unseen,time},index)=>( 
-      <Pressable  key={index} onPress={()=>alert(name+":"+status)}>
+      <Pressable  key={index} onPress={()=>handlePress(name,status)}>
     <View style={[styles.aPersonChat,styles.ElevatedPerson]}>
       <Image
       style={

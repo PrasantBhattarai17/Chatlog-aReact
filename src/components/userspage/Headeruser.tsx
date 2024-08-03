@@ -7,7 +7,7 @@ export default function Headeruser() {
     <View style={styles.HeaderBox}>
     <Text style={styles.HeadingText}>Friends</Text>
     <View style={styles.SearchBar}>
-        <TextInput style={styles.InputBar}/>
+        <TextInput placeholder='Seach Friends' style={styles.InputBar}/>
         <TouchableOpacity style={styles.SearchImage}>
         <Image style={styles.SearchImage} source={{
   uri:"https://endlessicons.com/wp-content/uploads/2015/08/search-icon-2-614x460.png"

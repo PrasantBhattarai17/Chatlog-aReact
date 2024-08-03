@@ -3,7 +3,7 @@ import React from 'react';
 import Headeruser from './Headeruser';
 import UserStatus from './UserStatus';
 
-export default function OnlineUsers() {
+export default function OnlineUsers():JSX.Element {
   return (
 <ScrollView>
   <Headeruser/>

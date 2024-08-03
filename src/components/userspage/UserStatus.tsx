@@ -9,7 +9,7 @@ export default function UserStatus() {
   return (
         <View style={styles.AllUsers}>
      <View style={styles.OnlineUser}>
-      <Text style={styles.UserText}>Online</Text>
+      <Text style={styles.UserText}>Online-{filteredIsOnPeopleData.length}</Text>
       <FontAwesome style={styles.circle} name='circle'/>  
            </View>
        {filteredIsOnPeopleData.map((user)=><TouchableOpacity key={user.uid}><View style={styles.UserBar}>
@@ -29,7 +29,7 @@ export default function UserStatus() {
         </TouchableOpacity>
         )} 
      <View style={styles.OnlineUser}>
-      <Text style={styles.UserText}>Away</Text>
+      <Text style={styles.UserText}>Away-{filteredAwayPeopleData.length}</Text>
       <FontAwesome style={{color:"gray"}} name='circle'/>  
            </View>
        {filteredAwayPeopleData.map((user)=><TouchableOpacity key={user.uid}><View style={styles.UserBar}>
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
       
     },
     NameText:{
-        fontSize:18,
+        fontSize:15,
         fontWeight:"bold",
         marginHorizontal:10,   
     },
@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
     UserInfo:{
       flex:1,
       flexDirection:"row",
-      alignItems:"center"
+      alignItems:"center",
+      padding:7
     }
 });
