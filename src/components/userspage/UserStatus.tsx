@@ -2,17 +2,23 @@ import { StyleSheet, Text, View,Image,TouchableOpacity } from 'react-native';
 import React from 'react';
 import { FontAwesome } from '@expo/vector-icons';
 import { PeopleData } from '../../utils/constants';
-
+import { router } from 'expo-router';
+import * as Haptics from "expo-haptics"
 export default function UserStatus() {
   const filteredIsOnPeopleData=PeopleData.filter((user)=>user?.online==true);
   const filteredAwayPeopleData=PeopleData.filter((user)=>user?.online==false);
+  const handlePress=(name:string,status:string)=>{
+    router.navigate("/"+name)
+    console.log(name)
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
+  }
   return (
         <View style={styles.AllUsers}>
      <View style={styles.OnlineUser}>
       <Text style={styles.UserText}>Online-{filteredIsOnPeopleData.length}</Text>
       <FontAwesome style={styles.circle} name='circle'/>  
            </View>
-       {filteredIsOnPeopleData.map((user)=><TouchableOpacity key={user.uid}><View style={styles.UserBar}>
+       {filteredIsOnPeopleData.map((user)=><TouchableOpacity onPress={()=>handlePress(user?.name,user?.status)}  key={user.uid}><View style={styles.UserBar}>
         <View style={styles.UserInfo}>
         <Image
          style={
@@ -26,13 +32,13 @@ export default function UserStatus() {
         <FontAwesome style={styles.circle} name='circle'/>  
        </View>
         </View>
-        </TouchableOpacity>
+        </TouchableOpacity >
         )} 
      <View style={styles.OnlineUser}>
       <Text style={styles.UserText}>Away-{filteredAwayPeopleData.length}</Text>
       <FontAwesome style={{color:"gray"}} name='circle'/>  
            </View>
-       {filteredAwayPeopleData.map((user)=><TouchableOpacity key={user.uid}><View style={styles.UserBar}>
+       {filteredAwayPeopleData.map((user)=><TouchableOpacity onPress={()=>handlePress(user?.name,user?.status)} key={user.uid}><View style={styles.UserBar}>
         <View style={styles.UserInfo}>
         <Image
          style={
