@@ -2,12 +2,13 @@ import { Pressable, ScrollView, StyleSheet, Text, View,Image, TouchableOpacity }
 import React from 'react';
 import { PeopleData } from '../utils/constants';
 import * as Haptics from "expo-haptics";
+import { router } from 'expo-router';
 
 
 export default function ScrollChats() {
   const frienddata=PeopleData;
   const handlePress=(name:string,status:string)=>{
-    alert(name+":"+status);
+    router.navigate("/"+name)
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
   }
   return (

@@ -35,20 +35,24 @@ const styles = StyleSheet.create({
     SearchInput:{
    borderWidth:1,
    width:260,
-   height:40,
-   marginLeft:10,
-   borderRadius:7,
+   height:46,
+   marginLeft:8,
+   borderTopLeftRadius:30,
+   borderBottomLeftRadius:30,
+   borderTopRightRadius:30,
+   borderBottomRightRadius:30,
    color:"black",
    backgroundColor:"#fff",
    shadowColor:"black",
-   elevation:2
+   elevation:2,
+   padding:7
 
     },
     WholeHeader:{
       marginVertical:25
     },
     SearchImage:{
-      width:60,
+      width:64,
       height:60,
       alignSelf:"center"
     }

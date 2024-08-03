@@ -47,7 +47,11 @@ const styles = StyleSheet.create({
      height:50,
      marginLeft:10,
      alignSelf:"center",
-     borderRadius:7,
+     borderTopLeftRadius:35,
+     borderBottomLeftRadius:35,
+     borderTopRightRadius:35,
+     borderBottomRightRadius:35,
+     padding:7
       },
       SearchImage:{
         width:70,

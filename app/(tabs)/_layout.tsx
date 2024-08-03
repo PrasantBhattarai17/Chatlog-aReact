@@ -7,23 +7,23 @@ export default function () {
   return (
    <Tabs screenOptions={{
     tabBarActiveTintColor:"black",
-    tabBarShowLabel:false
+    tabBarShowLabel:true
    }}>
     <Tabs.Screen name='index' options={{
-        title:"Home",
+        title:"Chats",
         headerShown:false,
-        tabBarIcon:({color})=><FontAwesome size={28} name='home' color={color}/>,
+        tabBarIcon:({color})=><FontAwesome size={28} name='comment' color={color}/>,
         
     }}/>
     <Tabs.Screen name='Newchat' options={{
-        title:"Newchat",
+        title:"Stories",
         headerShown:false,
         tabBarIcon:({color})=><FontAwesome size={28} name='plus' color={color}/>
         }}/>
     <Tabs.Screen name='NavBelow' options={{
-        title:"Online",
+        title:"People",
         headerShown:false,
-        tabBarIcon:({color})=><FontAwesome size={28} name='user' color={color}/>
+        tabBarIcon:({color})=><FontAwesome size={28} name='users' color={color}/>
         }}/>
    </Tabs>
   )
