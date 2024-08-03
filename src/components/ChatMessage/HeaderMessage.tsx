@@ -9,7 +9,7 @@ type HeaderMessageProps={
 export default function HeaderMessage({name}:HeaderMessageProps) {
   return (
     <View>
-      <Text>HeaderMessage:{name}</Text>
+
     </View>
   )
 }

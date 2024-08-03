@@ -1,13 +1,17 @@
 import { Pressable, ScrollView, StyleSheet, Text, View,Image, TextInput } from 'react-native';
 import React, { useState } from 'react';
+import { FontAwesome } from '@expo/vector-icons';
 
 export default function Header() {
   const [showSearch,setShowSearch]=useState(false);
   return (
     <ScrollView style={styles.WholeHeader}>
     <View style={styles.HeaderBox}>
-  {(showSearch)? (<TextInput placeholder='Search User' style={styles.SearchInput}></TextInput>):<Text style={styles.HeaderChat}>Messenger</Text>}
-<Pressable onPress={()=>setShowSearch(!showSearch)}>
+      <View style={styles.menubars}>
+   <FontAwesome style={{fontSize:30}} name='bars'/>
+  {(showSearch)? (<TextInput placeholder='Search User' style={styles.SearchInput}></TextInput>):<Text style={styles.HeaderChat}>Connectify</Text>}
+    </View>
+  <Pressable onPress={()=>setShowSearch(!showSearch)}>
 <Image style={styles.SearchImage} source={{
   uri:"https://endlessicons.com/wp-content/uploads/2015/08/search-icon-2-614x460.png"
 }}></Image>
@@ -34,8 +38,8 @@ const styles = StyleSheet.create({
     },
     SearchInput:{
    borderWidth:1,
-   width:260,
-   height:46,
+   width:240,
+   height:40,
    marginLeft:8,
    borderTopLeftRadius:30,
    borderBottomLeftRadius:30,
@@ -49,11 +53,16 @@ const styles = StyleSheet.create({
 
     },
     WholeHeader:{
-      marginVertical:25
+      marginVertical:25,
     },
     SearchImage:{
-      width:64,
+      width:60,
       height:60,
-      alignSelf:"center"
+    },
+    menubars:{
+      flexDirection:"row",
+      alignItems:"center",
+      justifyContent:"space-between",
+      width:165,
     }
 });

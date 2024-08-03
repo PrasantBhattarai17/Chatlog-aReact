@@ -11,7 +11,7 @@ export default function Story() {
         source={{ uri:"https://static.vecteezy.com/system/resources/previews/024/758/073/original/simple-add-story-icon-the-icon-can-be-used-for-websites-print-templates-presentation-templates-illustrations-etc-free-vector.jpg"}}/>
        <Text style={styles.nameText}>Add Story</Text>
         </View>
-      {frienddata.map(({image,name,status},index)=>(
+      {frienddata.map(({image,name},index)=>(
       <View 
       key={index} 
       style={styles.profileUser}>

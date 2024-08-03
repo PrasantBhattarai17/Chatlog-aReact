@@ -7,7 +7,8 @@ export default function () {
   return (
    <Tabs screenOptions={{
     tabBarActiveTintColor:"black",
-    tabBarShowLabel:true
+    tabBarShowLabel:true,
+    tabBarLabelStyle:{fontSize:13}
    }}>
     <Tabs.Screen name='index' options={{
         title:"Chats",
@@ -16,7 +17,7 @@ export default function () {
         
     }}/>
     <Tabs.Screen name='Newchat' options={{
-        title:"Stories",
+        title:"Peeks",
         headerShown:false,
         tabBarIcon:({color})=><FontAwesome size={28} name='plus' color={color}/>
         }}/>
