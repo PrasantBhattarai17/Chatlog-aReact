@@ -6,7 +6,6 @@ import ChatComponent from '../src/components/ChatMessage/Gifted_Chat';
 
 export default function MessageBox() {
   const {id}=useGlobalSearchParams<{id:string}>();
-  console.log(id);
   return (
     <View>
     <HeaderMessage name={id}/>

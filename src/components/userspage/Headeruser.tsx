@@ -25,19 +25,17 @@ const styles = StyleSheet.create({
     alignItems:"flex-start",
     justifyContent:"space-evenly",
     backgroundColor:"#fff",
-    height:200,
+    height:150,
     },
     SearchBar:{
     height:100,
     backgroundColor:"#fff",
     width:360,
     flexDirection:"row",
-    margin:2,
-    marginBottom:7,
+     marginHorizontal:2
     },
     HeadingText:{
     marginHorizontal:18,
-    marginTop:35,
     fontSize:26,
     fontWeight:"bold"
      },

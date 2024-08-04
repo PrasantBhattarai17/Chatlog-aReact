@@ -9,7 +9,6 @@ export default function UserStatus() {
   const filteredAwayPeopleData=PeopleData.filter((user)=>user?.online==false);
   const handlePress=(name:string,status:string)=>{
     router.navigate("/"+name)
-    console.log(name)
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
   }
   return (

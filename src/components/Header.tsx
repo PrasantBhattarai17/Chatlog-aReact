@@ -1,31 +1,39 @@
-import { Pressable, ScrollView, StyleSheet, Text, View,Image, TextInput, TouchableOpacity } from 'react-native';
-import React, { useState } from 'react';
+import { StyleSheet, Text, View,Image, TextInput, TouchableOpacity } from 'react-native';
+import React, {  useState } from 'react';
 import { FontAwesome } from '@expo/vector-icons';
 import {  useNavigation } from 'expo-router';
 import { DrawerActions } from '@react-navigation/native';
 
 export default function Header() {
   const [showSearch,setShowSearch]=useState(false);
+  const [searchTxt,setSearchTxt]=useState('');
   const navigation = useNavigation();
   const toggleDrawer=()=>{
     navigation.dispatch(DrawerActions.openDrawer())  }
+    const toggleSearch = () => {
+      if (searchTxt === '') {
+        setShowSearch(!showSearch);
+      }
+    };
   return (
-    <ScrollView style={styles.WholeHeader}>
+    <View style={styles.WholeHeader}>
     <View style={styles.HeaderBox}>
       <View style={styles.menubars}>
         <TouchableOpacity onPress={toggleDrawer}>
    <FontAwesome style={{fontSize:30}} name='bars'/>
         </TouchableOpacity>
-  {(showSearch)? (<TextInput placeholder='Search User' style={styles.SearchInput}></TextInput>):<Text style={styles.HeaderChat}>Connectify</Text>}
+  {(showSearch)? 
+  (<TextInput placeholder='Search User' onChangeText={(text)=>setSearchTxt(text)} style={styles.SearchInput}></TextInput>):
+  <Text style={styles.HeaderChat}>Connectify</Text>}
     </View>
-  <Pressable onPress={()=>setShowSearch(!showSearch)}>
+  <TouchableOpacity onPress={()=>toggleSearch()}>
 <Image style={styles.SearchImage} source={{
   uri:"https://endlessicons.com/wp-content/uploads/2015/08/search-icon-2-614x460.png"
 }}></Image>
-</Pressable>
+</TouchableOpacity>
 </View>
 
-    </ScrollView>
+    </View>
   )
 }
 

@@ -7,7 +7,7 @@ import ScrollChats from './ScrollChats';
 export default function ChatLog() {
   return (
     <View style={styles.wholeContainer}>
-      {/* <Header /> */}
+      {/* <Header/> */}
       <ScrollView style={styles.mainContent}>
         <Story/>
         <ScrollChats />

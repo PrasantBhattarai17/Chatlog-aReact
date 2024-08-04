@@ -3,6 +3,7 @@ import React from 'react';
 import { PeopleData } from '../utils/constants';
 import * as Haptics from "expo-haptics";
 import { router } from 'expo-router';
+import { FontAwesome } from '@expo/vector-icons';
 
 
 export default function ScrollChats() {
@@ -34,11 +35,16 @@ export default function ScrollChats() {
       source={{ uri:image}} />
       <View style={styles.Chats}>
         <Text style={styles.NameText}>{name}</Text>
-        <Text style={styles.messageText}>{status}</Text>
+        {(unseen>0)?
+          <Text style={styles.messageText}>{status}</Text>:
+          <Text style={[styles.messageText,{color:"gray"}]}>{status}</Text>        }
       </View>
       <View style={styles.Figures}>
         <Text style={styles.Figuretext}>{time}</Text>
-        <Text style={styles.unseenStyle}>{unseen.toString()}</Text>
+        {(unseen>0)?
+        <Text style={styles.unseenStyle}>{unseen.toString()}</Text>:
+        <FontAwesome color={"gray"} name='check'/>
+        }
       </View>
     </View>
       </Pressable>

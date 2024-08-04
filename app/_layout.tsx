@@ -15,7 +15,7 @@ export default function _layout() {
       headerBackVisible:false,
       headerTitle:()=><>
       <TouchableOpacity onPress={()=>router.back()}>
-      <FontAwesome  name="arrow-left" style={{fontSize:20,marginRight:7}}/>
+      <FontAwesome  name="angle-left" size={35} style={{marginRight:14,fontWeight:"bold"}}/>
       </TouchableOpacity>
       <Image style={styles.ImageStyle} source={{uri:filtered[0]?.image}}/>
       <View style={{flexDirection:"column"}}>
