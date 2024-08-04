@@ -11,6 +11,7 @@ export default function _layout() {
     screenOptions={{
         headerShown:true,
         header:()=><Header/>,
+        drawerHideStatusBarOnOpen:true,
             }}>
      <Drawer.Screen 
         name='profile'
@@ -33,6 +34,42 @@ name='favorites'
 options={{
     drawerLabel:'Favorites',
     drawerIcon:()=><FontAwesome name='star' size={25}/>
+
+}}
+>
+</Drawer.Screen>
+<Drawer.Screen 
+name='notifications'
+options={{
+    drawerLabel:'Notifications',
+    drawerIcon:()=><FontAwesome name='bell' size={25}/>
+
+}}
+>
+</Drawer.Screen>
+<Drawer.Screen 
+name='settings'
+options={{
+    drawerLabel:'Settings',
+    drawerIcon:()=><FontAwesome name='gear' size={25}/>
+
+}}
+>
+    </Drawer.Screen>
+<Drawer.Screen 
+name='switchAc'
+options={{
+    drawerLabel:'Switch Account',
+    drawerIcon:()=><FontAwesome name='angle-down' size={25}/>
+
+}}
+>
+</Drawer.Screen>
+<Drawer.Screen 
+name='logout'
+options={{
+    drawerLabel:'Log Out',
+    drawerIcon:()=><FontAwesome name='sign-out' size={25}/>
 
 }}
 >
