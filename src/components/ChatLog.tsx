@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import React from 'react';
-import Header from './Header';
+// import Header from './Header';
 import Story from './Story';
 import ScrollChats from './ScrollChats';
 
 export default function ChatLog() {
   return (
     <View style={styles.wholeContainer}>
-      <Header />
+      {/* <Header /> */}
       <ScrollView style={styles.mainContent}>
         <Story/>
         <ScrollChats />

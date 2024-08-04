@@ -1,14 +1,21 @@
-import { Pressable, ScrollView, StyleSheet, Text, View,Image, TextInput } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View,Image, TextInput, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import { FontAwesome } from '@expo/vector-icons';
+import {  useNavigation } from 'expo-router';
+import { DrawerActions } from '@react-navigation/native';
 
 export default function Header() {
   const [showSearch,setShowSearch]=useState(false);
+  const navigation = useNavigation();
+  const toggleDrawer=()=>{
+    navigation.dispatch(DrawerActions.openDrawer())  }
   return (
     <ScrollView style={styles.WholeHeader}>
     <View style={styles.HeaderBox}>
       <View style={styles.menubars}>
+        <TouchableOpacity onPress={toggleDrawer}>
    <FontAwesome style={{fontSize:30}} name='bars'/>
+        </TouchableOpacity>
   {(showSearch)? (<TextInput placeholder='Search User' style={styles.SearchInput}></TextInput>):<Text style={styles.HeaderChat}>Connectify</Text>}
     </View>
   <Pressable onPress={()=>setShowSearch(!showSearch)}>
@@ -25,13 +32,12 @@ export default function Header() {
 const styles = StyleSheet.create({
     HeaderBox:{
         height:60,
-        marginVertical:5,
         marginHorizontal:5,
         padding:10,
         flexDirection:"row",
         justifyContent:"space-between",
-        alignItems:"center"
-    },
+        alignItems:"center",
+          },
     HeaderChat:{
         fontSize:25,
        fontWeight:"bold",
