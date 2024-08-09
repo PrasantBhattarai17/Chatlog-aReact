@@ -10,8 +10,8 @@ export default function _layout() {
     <Drawer
     screenOptions={{
         headerShown:true,
-        header:()=><Header/>,
         drawerHideStatusBarOnOpen:true,
+        header:()=><Header/>,
             }}>
      <Drawer.Screen 
         name='profile'
@@ -67,11 +67,13 @@ options={{
 </Drawer.Screen>
 <Drawer.Screen 
 name='logout'
+
 options={{
     drawerLabel:'Log Out',
-    drawerIcon:()=><FontAwesome name='sign-out' size={25}/>
-
-}}
+    drawerIcon:()=><FontAwesome name='sign-out' size={25}/>,
+    headerShown:false,
+ 
+    }}
 >
 </Drawer.Screen>
 

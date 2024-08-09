@@ -5,7 +5,7 @@ import Login from '../../src/components/LoginAuth/Login'
 export default function profile() {
   return (
     <View>
-<Login/>
+   <Text>Profile</Text>
     </View>
   )
 }
