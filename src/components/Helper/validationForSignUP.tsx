@@ -5,5 +5,6 @@ export const signUpschema = Yup.object({
   password: Yup.string()
     .min(8, "Password must be more than 8 digits")
     .required("Please Enter password")
-    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,"Special character and Number is Must")
+    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,"Special character and Number is Must"),
+  name:Yup.string().min(4,"Name is too short").required("please Enter Your Full Name")
 });

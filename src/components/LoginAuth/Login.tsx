@@ -1,30 +1,47 @@
-import { Pressable, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React, { useState } from "react";
 import { Formik } from "formik";
 import { TextInput } from "react-native-gesture-handler";
 import { signUpschema } from "../Helper/validationForSignUP";
 import { router } from "expo-router";
-export default function Login() {
-  const [isSign,setIsSign] = useState(false);
-  const toggleSign = () => {
-    setIsSign(!isSign);
-  };
+import { FIREBASE_AUTH } from "../../../firebase.config";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
+export default function Login() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  signInWithEmailAndPassword(FIREBASE_AUTH, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+            // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
   return (
-    <View style={styles.vBox}>
-      {isSign ? (
-        <>
           <View style={styles.FormBox}>
             <View>
               <Text>WELCOME TO CONNECTIFY!</Text>
-              <Text>Create New Account!</Text>
+              <Text>Sign In to your Account!</Text>
             </View>
             <Formik
               initialValues={{ email: "", password: "" }}
               onSubmit={(values, { setSubmitting }) => {
                 setTimeout(() => {
-                  alert(JSON.stringify(values, null, 2));
+                  setEmail(values.email)
+                  setPassword(values.password)
                   setSubmitting(false);
+                  setIsLoading(!isLoading);
                 }, 400);
               }}
               validationSchema={signUpschema}
@@ -58,88 +75,31 @@ export default function Login() {
                   {errors.password && (
                     <Text style={styles.ErrorMsg}>{errors.password}</Text>
                   )}
-                  <TouchableOpacity onPress={()=>handleSubmit()}>
-                    <Text style={styles.ButtonTxt}>Sign Up</Text>
+                  <TouchableOpacity onPress={() => handleSubmit()}>
+                    <Text style={styles.ButtonTxt}>Login</Text>
                   </TouchableOpacity>
                   <View style={styles.changePage}>
-                  <Text>Already have an account?</Text>
-                    <Pressable onPress={()=>toggleSign()}><Text style={{fontWeight:"bold"}}> Sign In</Text></Pressable>
+                    <Text>New in Connectify?</Text>
+                    <Pressable onPress={() => router.navigate("create_user")}>
+                      <Text style={{ fontWeight: "bold" }}> Sign up</Text>
+                    </Pressable>
                   </View>
                 </View>
               )}
             </Formik>
           </View>
-        </>
-      ) : (
-        <View style={styles.FormBox}>
-          <View>
-            <Text>WELCOME TO CONNECTIFY!</Text>
-            <Text>Sign In to your Account!</Text>
-          </View>
-          <Formik
-            initialValues={{ email: "", password: "" }}
-            onSubmit={(values, { setSubmitting }) => {
-              setTimeout(() => {
-                router.navigate("/(drawer)/(tabs)/Main")
-                setSubmitting(false);
-              }, 400);
-            }}
-            validationSchema={signUpschema}
-          >
-            {({
-              values,
-              errors,
-              touched,
-              handleChange,
-              handleBlur,
-              handleSubmit,
-              isSubmitting,
-            }) => (
-              <View>
-                <TextInput
-                  placeholder="Email or Phone Number"
-                  value={values.email}
-                  onChangeText={handleChange("email")}
-                  style={styles.Inputtxt}
-                />
-                {errors.email && (
-                  <Text style={styles.ErrorMsg}>{errors.email}</Text>
-                )}
-                <TextInput
-                  placeholder="Password"
-                  secureTextEntry={true}
-                  value={values.password}
-                  onChangeText={handleChange("password")}
-                  style={styles.Inputtxt}
-                />
-                {errors.password && (
-                  <Text style={styles.ErrorMsg}>{errors.password}</Text>
-                )}
-                <TouchableOpacity onPress={() => handleSubmit()}>
-                  <Text style={styles.ButtonTxt}>Login</Text>
-                </TouchableOpacity>
-                <View style={styles.changePage}>
-                <Text>New in Connectify?</Text>
-                <Pressable onPress={()=>toggleSign()}><Text  style={{fontWeight:"bold"}}> Sign up</Text></Pressable>
-                </View>
-              </View>
-            )}
-          </Formik>
-        </View>
-      )}
-    </View>
-  );
-}
+        )};
+      
 const styles = StyleSheet.create({
   vBox: {
     flex: 1,
+    height: 900,
   },
-  changePage:{
-    flexDirection:"row",
-    justifyContent:"center"
-  
+  changePage: {
+    flexDirection: "row",
+    justifyContent: "center",
   },
-    FormBox: {
+  FormBox: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",

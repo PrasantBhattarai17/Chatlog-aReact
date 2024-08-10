@@ -11,6 +11,7 @@ export default function _layout() {
   return (
  <Stack>
     <Stack.Screen name="index" options={{headerShown:false}}/>
+    <Stack.Screen name="create_user" options={{headerShown:false}}/>
     <Stack.Screen name="(drawer)" options={{headerShown:false}}/>
     <Stack.Screen name="[id]"   options={{
       headerBackVisible:false,
