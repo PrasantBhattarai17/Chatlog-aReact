@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Formik } from "formik";
 import { TextInput } from "react-native-gesture-handler";
 import { signUpschema } from "../Helper/validationForSignUP";
+import { router } from "expo-router";
 export default function Login() {
   const [isSign,setIsSign] = useState(false);
   const toggleSign = () => {
@@ -79,7 +80,7 @@ export default function Login() {
             initialValues={{ email: "", password: "" }}
             onSubmit={(values, { setSubmitting }) => {
               setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
+                router.navigate("/(drawer)/(tabs)/Main")
                 setSubmitting(false);
               }, 400);
             }}

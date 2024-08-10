@@ -10,6 +10,7 @@ export default function _layout() {
   const filtered=PeopleData.filter((user)=>user?.name==id);
   return (
  <Stack>
+    <Stack.Screen name="index" options={{headerShown:false}}/>
     <Stack.Screen name="(drawer)" options={{headerShown:false}}/>
     <Stack.Screen name="[id]"   options={{
       headerBackVisible:false,

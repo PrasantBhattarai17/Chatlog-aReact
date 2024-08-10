@@ -10,7 +10,7 @@ export default function () {
     tabBarShowLabel:true,
     tabBarLabelStyle:{fontSize:13}
    }}>
-    <Tabs.Screen name='index' options={{
+    <Tabs.Screen name='Main' options={{
         title:"Chats",
         headerShown:false,
         tabBarIcon:({color})=><FontAwesome size={28} name='comment' color={color}/>,
