@@ -4,6 +4,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  ActivityIndicator,
 } from "react-native";
 import React, { useState } from "react";
 import { Formik } from "formik";
@@ -15,81 +16,88 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 
 export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  signInWithEmailAndPassword(FIREBASE_AUTH, email, password)
-    .then((userCredential) => {
-      // Signed in 
+  const handleLogin = async (email:string, password:string) => {
+    setIsLoading(true);
+    try {
+      const userCredential = await signInWithEmailAndPassword(FIREBASE_AUTH, email, password);
       const user = userCredential.user;
-            // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    });
+      // Navigate to main screen
+      router.navigate("/(drawer)/(tabs)/Main");
+    } catch (error:any) {
+      setErrorMessage(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
-          <View style={styles.FormBox}>
-            <View>
-              <Text>WELCOME TO CONNECTIFY!</Text>
-              <Text>Sign In to your Account!</Text>
-            </View>
-            <Formik
-              initialValues={{ email: "", password: "" }}
-              onSubmit={(values, { setSubmitting }) => {
-                setTimeout(() => {
-                  setEmail(values.email)
-                  setPassword(values.password)
-                  setSubmitting(false);
-                  setIsLoading(!isLoading);
-                }, 400);
-              }}
-              validationSchema={signUpschema}
-            >
-              {({
-                values,
-                errors,
-                touched,
-                handleChange,
-                handleBlur,
-                handleSubmit,
-                isSubmitting,
-              }) => (
-                <View>
-                  <TextInput
-                    placeholder="Email or Phone Number"
-                    value={values.email}
-                    onChangeText={handleChange("email")}
-                    style={styles.Inputtxt}
-                  />
-                  {errors.email && (
-                    <Text style={styles.ErrorMsg}>{errors.email}</Text>
-                  )}
-                  <TextInput
-                    placeholder="Password"
-                    secureTextEntry={true}
-                    value={values.password}
-                    onChangeText={handleChange("password")}
-                    style={styles.Inputtxt}
-                  />
-                  {errors.password && (
-                    <Text style={styles.ErrorMsg}>{errors.password}</Text>
-                  )}
-                  <TouchableOpacity onPress={() => handleSubmit()}>
-                    <Text style={styles.ButtonTxt}>Login</Text>
-                  </TouchableOpacity>
-                  <View style={styles.changePage}>
-                    <Text>New in Connectify?</Text>
-                    <Pressable onPress={() => router.navigate("create_user")}>
-                      <Text style={{ fontWeight: "bold" }}> Sign up</Text>
-                    </Pressable>
-                  </View>
-                </View>
+    <View style={styles.FormBox}>
+      <View>
+        <Text>WELCOME TO CONNECTIFY!</Text>
+        <Text>Sign In to your Account!</Text>
+      </View>
+      <Formik
+        initialValues={{ email: "", password: "" }}
+        onSubmit={(values, { setSubmitting }) => {
+          handleLogin(values.email, values.password);
+          setSubmitting(false);
+        }}
+        validationSchema={signUpschema}
+      >
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          isSubmitting,
+        }) => (
+          <View>
+            <TextInput
+              placeholder="Email or Phone Number"
+              value={values.email}
+              onChangeText={handleChange("email")}
+              style={styles.Inputtxt}
+            />
+            {errors.email && (
+              <Text style={styles.ErrorMsg}>{errors.email}</Text>
+            )}
+            <TextInput
+              placeholder="Password"
+              secureTextEntry={true}
+              value={values.password}
+              onChangeText={handleChange("password")}
+              style={styles.Inputtxt}
+            />
+            {errors.password && (
+              <Text style={styles.ErrorMsg}>{errors.password}</Text>
+            )}
+            {errorMessage ? (
+              <Text style={styles.ErrorMsg}>{errorMessage}</Text>
+            ) : null}
+            <TouchableOpacity onPress={()=>handleSubmit}>
+              {isLoading ? (
+                <ActivityIndicator size="small" color="#fff" />
+              ) : (
+                <Text style={styles.ButtonTxt}>Login</Text>
               )}
-            </Formik>
+            </TouchableOpacity>
+            <View style={styles.changePage}>
+              <Text>New in Connectify?</Text>
+              <Pressable onPress={() => router.navigate("create_user")}>
+                <Text style={{ fontWeight: "bold" }}> Sign up</Text>
+              </Pressable>
+            </View>
           </View>
-        )};
-      
+        )}
+      </Formik>
+    </View>
+  );
+}
+ 
 const styles = StyleSheet.create({
   vBox: {
     flex: 1,
