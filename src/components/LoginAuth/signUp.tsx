@@ -4,39 +4,30 @@ import {
   Text,
   TouchableOpacity,
   View,
-  ActivityIndicator,
 } from "react-native";
 import React, { useState } from "react";
 import { Formik } from "formik";
 import { TextInput } from "react-native-gesture-handler";
 import { signUpschema } from "../Helper/validationForSignUP";
 import { router } from "expo-router";
+import { createUserWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 import { FIREBASE_AUTH } from "../../../firebase.config";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { FIREBASE_APP } from "../../../firebase.config";
+const [email,setEmail]=useState('');
+const [password,setPassword]=useState('');
+const auth =FIREBASE_AUTH;
+createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
 
 export default function SignUp() {
-  const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-  console.log("Firebase App initialized:", FIREBASE_APP);
-  console.log("Firebase Auth initialized:", FIREBASE_AUTH);
-
-  const handleSignUp = async (email:string, password:string) => {
-    setIsLoading(true);
-    try {
-      const userCredential = await createUserWithEmailAndPassword(FIREBASE_AUTH, email, password);
-      const user = userCredential.user;
-      // Navigate to main screen after sign-up
-      console.log("User created successfully:", user);
-      router.navigate("/(drawer)/(tabs)/Main");
-      console.log("Navigated to Main");
-    } catch (error:any) {
-      setErrorMessage(error.message);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   return (
     <View style={styles.vBox}>
       <View style={styles.FormBox}>
@@ -47,7 +38,9 @@ export default function SignUp() {
         <Formik
           initialValues={{ email: "", password: "", name: "" }}
           onSubmit={(values, { setSubmitting }) => {
-            handleSignUp(values.email, values.password);
+            setEmail(values.email);
+            setPassword(values.password)
+            router.navigate("/(drawer)/(tabs)/Main");
             setSubmitting(false);
           }}
           validationSchema={signUpschema}
@@ -91,15 +84,12 @@ export default function SignUp() {
               {errors.password && (
                 <Text style={styles.ErrorMsg}>{errors.password}</Text>
               )}
-              {errorMessage ? (
-                <Text style={styles.ErrorMsg}>{errorMessage}</Text>
-              ) : null}
-              <TouchableOpacity style={styles.BtnBox} onPress={()=>handleSubmit}>
-                {isLoading ? (
-                  <ActivityIndicator size="small" color="#fff" />
-                ) : (
+              <TouchableOpacity style={styles.BtnBox} onPress={()=>handleSubmit()}>
+                 (
                   <Text style={styles.ButtonTxt}>Sign Up</Text>
-                )}
+                  <Text style={styles.ButtonTxt}>{email}</Text>
+                  <Text style={styles.ButtonTxt}>{password}</Text>
+                )
               </TouchableOpacity>
               <View style={styles.changePage}>
                 <Text>Already have an account?</Text>
